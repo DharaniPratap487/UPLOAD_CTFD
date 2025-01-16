@@ -16,6 +16,7 @@ This project has been customized to host the **ODU Cyber Competition 2025**, wit
 ## Features
 
 - **ODU Cyber Competition 2025:**
+
   - Integrated branding (logo, colors, and university name).
   - Countdown timer for the event start date.
   - Dedicated menu item in the navbar for event details.
@@ -46,6 +47,7 @@ This project has been customized to host the **ODU Cyber Competition 2025**, wit
 ## Customizations
 
 The following customizations have been added for **ODU Cyber Competition 2025**:
+
 1. **Branding:**
    - Updated the landing page to reflect Old Dominion University's logo, colors, and name.
 2. **Countdown Timer:**
@@ -62,14 +64,17 @@ The following customizations have been added for **ODU Cyber Competition 2025**:
 ## Installation
 
 1. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
+
    You can also use the `prepare.sh` script to install system dependencies using apt.
 
 2. Modify configurations in `.env` (or `config.ini` if applicable).
 
 3. Initialize the database:
+
    ```bash
    flask db upgrade
    ```
@@ -85,10 +90,12 @@ The following customizations have been added for **ODU Cyber Competition 2025**:
 ## Deployment
 
 ### **Local Deployment**
+
 1. Follow the installation steps above.
 2. Test locally to ensure branding, countdown timer, and all functionalities work as expected.
 
 ### **AWS Deployment**
+
 1. Launch an EC2 instance with Docker installed.
 2. Use `docker-compose` to deploy:
    ```bash
@@ -101,6 +108,7 @@ The following customizations have been added for **ODU Cyber Competition 2025**:
 ## Live Demo
 
 If deployed, provide the live demo link:
+
 - [Live Demo (Optional)]()
 
 ---
@@ -132,6 +140,7 @@ CTFd is heavily integrated with [MajorLeagueCyber](https://majorleaguecyber.org/
 ---
 
 ### **Notes**
+
 - If hosting on AWS, replace the placeholder under "Live Demo" with the actual public link.
 - Update the README if additional features are added.
 
