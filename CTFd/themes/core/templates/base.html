@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ Configs.ctf_name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ Configs.ctf_small_icon }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('views.themes', path='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('views.themes', path='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('views.themes', path='css/core.css') }}">
+    {% block stylesheets %}
+    {% endblock %}
+
+    {{ Plugins.styles }}
+    <script type="text/javascript">
+        var init = {
+            'urlRoot': "{{ request.script_root }}",
+            'csrfNonce': "{{ Session.nonce }}",
+            'userMode': "{{ Configs.user_mode }}",
+            'userId': {{ Session.id }},
+            'userName': {{ User.name | tojson }},
+            'userEmail': {{ User.email | tojson }},
+            'teamId': {{ Team.id | tojson }},
+            'teamName': {{ Team.name | tojson }},
+            'start': {{ Configs.start | tojson }},
+            'end': {{ Configs.end | tojson }},
+            'theme_settings': {{ Configs.theme_settings | tojson }}
+        }
+    </script>
+    {{ Configs.theme_header }}
+</head>
+<body>
+    {% include "components/navbar.html" %}
+
+    <main role="main" class="container mt-5">
+        <!-- ODU Branding -->
+        <section class="text-center mb-5">
+            <img src="{{ url_for('views.themes', path='images/odu_logo.png') }}" alt="ODU Logo" class="mb-3" style="max-width: 200px;">
+            <h1 class="mb-3 text-primary">Old Dominion University</h1>
+            <p class="lead">
+                Old Dominion University is committed to advancing cybersecurity education and fostering innovation 
+                in the digital era. Join us in shaping the future of cybersecurity professionals.
+            </p>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="text-center mb-5">
+            <h2 class="mb-4">ODU Cyber Competition 2025</h2>
+            <div id="countdown-timer" class="h3 text-primary">
+                Event Starts In: <span id="countdown"></span>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <a href="https://ctfd.io" class="text-secondary">
+                <small class="text-muted">Powered by CTFd</small>
+            </a>
+        </div>
+    </footer>
+
+    <script defer src="{{ url_for('views.themes', path='js/vendor.bundle.js') }}"></script>
+    <script defer src="{{ url_for('views.themes', path='js/core.js') }}"></script>
+    <script defer src="{{ url_for('views.themes', path='js/helpers.js') }}"></script>
+
+    <!-- Ensure Countdown Timer is Connected -->
+    {% block entrypoint %}
+    <script defer src="{{ url_for('views.themes', path='js/pages/main.js') }}"></script>
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+    {{ Plugins.scripts }}
+
+    {{ Configs.theme_footer }}
+</body>
+</html>
